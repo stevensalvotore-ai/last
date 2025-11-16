@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18 Candles - Debut Celebration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(90, 10, 30, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(90, 10, 30, 0.1) 0%, transparent 20%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Particle Background */
+        .particles-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .shots-container {
+            background: rgba(1, 2, 48, 0.7);
+            padding: 50px 40px;
+            border-radius: 5px;
+            max-width: 600px;
+            width: 100%;
+            border: 1px solid rgba(1, 1, 85, 0.5);
+            animation: slideUp 1.5s ease-out, glow 6s infinite alternate;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 5px 25px rgba(1, 1, 85, 0.5);
+            }
+            100% {
+                box-shadow: 0 5px 35px rgba(50, 121, 168, 0.7), 0 0 50px rgba(55, 128, 212, 0.3);
+            }
+        }
+
+        .shots-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #04078e, #3798d4);
+            animation: borderFlow 3s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .shots-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(50, 107, 168, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(55, 154, 212, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            animation: themeBackground 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes themeBackground {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        /* Glitch Text Effect */
+        .glitch-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .glitch-text {
+            position: relative;
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(226, 227, 239, 0.5);
+            animation: fadeIn 2s ease-out;
+            letter-spacing: 3px;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            animation: glitch-effect 3s infinite linear alternate-reverse;
+            color: #377bd4;
+            z-index: -1;
+        }
+
+        .glitch-text::after {
+            animation: glitch-effect 2s infinite linear alternate-reverse;
+            color: #1f97c2;
+            z-index: -2;
+        }
+
+        @keyframes glitch-effect {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-3px, 3px);
+            }
+            40% {
+                transform: translate(-3px, -3px);
+            }
+            60% {
+                transform: translate(3px, 3px);
+            }
+            80% {
+                transform: translate(3px, -3px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            animation: fadeIn 2.5s ease-out, pulse 4s infinite;
+            font-family: 'Cormorant Garamond', serif;
+            color: #e2e9ec;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(55, 154, 212, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(55, 162, 212, 0.8), 0 0 30px rgba(55, 175, 212, 0.6);
+            }
+        }
+
+        .shots-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .shot-item {
+            background: linear-gradient(135deg, #2a0a0a 0%, #5a0a1e 100%);
+            color: #e8e8e8;
+            padding: 20px 15px;
+            border-radius: 3px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(120, 0, 0, 0.3);
+            animation: shotPulse 3s infinite, fadeInUp 1s ease-out;
+            animation-delay: calc(var(--delay) * 0.1s);
+        }
+
+        @keyframes shotPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(168, 50, 50, 0.4);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .shot-item:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: linear-gradient(135deg, #3a0a0a 0%, #6a0a1e 100%);
+            animation: none;
+        }
+
+        .shot-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0) 100%);
+        }
+
+        .shot-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            animation: numberGlow 2s infinite alternate;
+        }
+
+        @keyframes numberGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(212, 175, 55, 0.9), 0 0 20px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        .shot-name {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 300;
+            color: #b8b8b8;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .shot-item:hover .shot-name {
+            color: #e8e8e8;
+            animation: textShine 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes textShine {
+            0% {
+                text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.8), 0 0 20px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        /* Candle Icon */
+        .candle-icon {
+            width: 40px;
+            height: 60px;
+            margin: 0 auto 15px;
+            position: relative;
+            animation: candleFlicker 3s ease-in-out infinite;
+        }
+
+        @keyframes candleFlicker {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.05);
+            }
+            50% {
+                transform: scale(0.98);
+            }
+            75% {
+                transform: scale(1.03);
+            }
+        }
+
+        .candle {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .candle-body {
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(to right, #f0f0f0, #e0e0e0, #f0f0f0);
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .candle-body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            border-radius: 5px 5px 0 0;
+        }
+
+        .candle-wick {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 10px;
+            background: #333;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .candle-flame {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 25px;
+            background: linear-gradient(to top, #ff9d00, #ffdb00, #ff9d00);
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 15px rgba(255, 157, 0, 0.7), 0 0 30px rgba(255, 157, 0, 0.5);
+            animation: flameFlicker 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes flameFlicker {
+            0% {
+                transform: translateX(-50%) scale(1, 1);
+                border-radius: 50% 50% 20% 20%;
+            }
+            100% {
+                transform: translateX(-50%) scale(1.1, 0.9);
+                border-radius: 40% 40% 30% 30%;
+            }
+        }
+
+        .candle-flame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.5));
+            border-radius: 50% 50% 20% 20%;
+        }
+
+        .candle-base {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120%;
+            height: 10px;
+            background: linear-gradient(to right, #d4af37, #f0e68c, #d4af37);
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Base Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .glitch-text {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .shots-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .shot-item {
+                padding: 15px 10px;
+            }
+            
+            .shot-number {
+                font-size: 1.5rem;
+            }
+            
+            .glitch-text::before,
+            .glitch-text::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .shots-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .shots-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles-background" id="particlesBackground"></div>
+    
+    <div class="shots-container">
+        <div class="glitch-container">
+            <h1 class="glitch-text" data-text="Hi Gillian, You're one of the 18 Candles">Hi Gillian, You're one of the 18 Candles</h1>
+        </div>
+        <p class="subtitle">NO INVITATION, NO ENTRY:</p>
+        <p class="subtitle"> Take a screen shot of your invitation card!</p>
+                
+        <div class="candle-icon">
+            <div class="candle">
+                <div class="candle-body"></div>
+                <div class="candle-wick"></div>
+                <div class="candle-flame"></div>
+                <div class="candle-base"></div>
+            </div>
+        </div>
+        
+        
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particlesBackground');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size
+            const size = Math.random() * 80 + 20;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            
+            // Random animation duration
+            const duration = Math.random() * 20 + 10;
+            particle.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            const delay = Math.random() * 5;
+            particle.style.animationDelay = `${delay}s`;
+            
+            particlesContainer.appendChild(particle);
+        }
+
+        // Generate shot items
+        const shotsGrid = document.querySelector('.shots-grid');
+        const shotNames = [
+            "You are at 1"
+        ];
+
+        // Create the single candle item
+        const shotItem = document.createElement('div');
+        shotItem.classList.add('shot-item');
+        shotItem.style.setProperty('--delay', 1);
+        
+        const candleIcon = document.createElement('div');
+        candleIcon.classList.add('candle-icon');
+        
+        const candle = document.createElement('div');
+        candle.classList.add('candle');
+        
+        const candleBody = document.createElement('div');
+        candleBody.classList.add('candle-body');
+        
+        const candleWick = document.createElement('div');
+        candleWick.classList.add('candle-wick');
+        
+        const candleFlame = document.createElement('div');
+        candleFlame.classList.add('candle-flame');
+        
+        const candleBase = document.createElement('div');
+        candleBase.classList.add('candle-base');
+        
+        candle.appendChild(candleBody);
+        candle.appendChild(candleWick);
+        candle.appendChild(candleFlame);
+        candle.appendChild(candleBase);
+        candleIcon.appendChild(candle);
+        
+        const shotNumber = document.createElement('div');
+        shotNumber.classList.add('shot-number');
+        shotNumber.textContent = "1";
+        
+        const shotName = document.createElement('div');
+        shotName.classList.add('shot-name');
+        shotName.textContent = shotNames[0];
+        
+        shotItem.appendChild(candleIcon);
+        shotItem.appendChild(shotNumber);
+        shotItem.appendChild(shotName);
+        
+        shotsGrid.appendChild(shotItem);
+
+        // Add hover sound effect (optional)
+        const shotItems = document.querySelectorAll('.shot-item');
+        shotItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // You could add a glass clinking sound here
+                // const audio = new Audio('glass-clink.mp3');
+                // audio.volume = 0.3;
+                // audio.play();
+            });
+        }); 
+    </script>
+</body>
+</html>
