@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whian's 18th Debut Celebration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #e8e8e8;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(90, 10, 30, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(90, 10, 30, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Particle Background */
+        .particles-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatParticle 20s infinite linear;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid #6f96df;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Glitch Text Effect */
+        .glitch-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch-text {
+            position: relative;
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            color: #6f96df;
+            text-shadow: 0 0 15px rgba(48, 176, 245, 0.377);
+            animation: fadeIn 2s ease-out;
+            letter-spacing: 3px;
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-text::before {
+            animation: glitch-effect 3s infinite linear alternate-reverse;
+            color: #C0C0C0;
+            z-index: -1;
+        }
+
+        .glitch-text::after {
+            animation: glitch-effect 2s infinite linear alternate-reverse;
+            color: #023E8A;
+            z-index: -2;
+        }
+
+        @keyframes glitch-effect {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-3px, 3px);
+            }
+            40% {
+                transform: translate(-3px, -3px);
+            }
+            60% {
+                transform: translate(3px, 3px);
+            }
+            80% {
+                transform: translate(3px, -3px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 5px;
+            animation: fadeIn 2.5s ease-out, pulse 4s infinite;
+            font-family: 'Cormorant Garamond', serif;
+            color: #c0c0c0;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(121, 215, 246, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(110, 209, 245, 0.8), 0 0 30px rgba(86, 239, 247, 0.6);
+            }
+        }
+
+        .date {
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 1px;
+            color: #c0c0c0;
+            animation: fadeIn 3s ease-out, slideInFromBottom 1.5s ease-out;
+            font-weight: 600;
+        }
+
+        .honoring {
+            font-size: 1.5rem;
+            margin-top: 1px;
+            color: #e8e8e8;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            animation: typewriter 4s steps(40) 1s both;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 30px auto 0;
+            width: fit-content;
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        .countdown-container {
+            background: rgba(1, 0, 4, 0.7);
+            padding: 40px;
+            border-radius: 5px;
+            margin: 40px auto;
+            max-width: 800px;
+            border: 1px solid rgba(8, 17, 88, 0.584);
+            animation: slideUp 1.5s ease-out, glow 6s infinite alternate;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 5px 25px rgba(3, 8, 90, 0.3);
+            }
+            100% {
+                box-shadow: 0 5px 35px rgba(13, 7, 130, 0.7), 0 0 50px rgba(2, 12, 151, 0.3);
+            }
+        }
+
+        .countdown-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            color: #c0c0c0;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, #060367 0%, #05076d 100%);
+            color: #e8e8e8;
+            padding: 25px 15px;
+            border-radius: 3px;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(59, 88, 237, 0.3);
+            animation: countdownPulse 2s infinite;
+        }
+
+        @keyframes countdownPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(10, 6, 141, 0.4);
+            }
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: linear-gradient(135deg, #060c7b 0%, #3d6ceb 100%);
+            animation: none;
+        }
+
+        .countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0) 100%);
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-family: 'Cinzel', serif;
+            color: #f4f5f8;
+            animation: numberGlow 2s infinite alternate;
+        }
+
+        @keyframes numberGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(45, 240, 243, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(55, 165, 212, 0.9), 0 0 20px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 300;
+            color: #b8b8b8;
+        }
+
+        .roles-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .role-card {
+            background: rgba(1, 2, 48, 0.7);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(4, 2, 109, 0.3);
+            transition: all 0.5s ease;
+            animation: fadeIn 2s ease-out, cardFloat 6s ease-in-out infinite;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .role-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(3, 6, 105, 0.4);
+            animation: none;
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #04078e, #3798d4);
+            animation: borderFlow 3s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .role-card h2 {
+            color: #c0c0c0;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            animation: textShine 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textShine {
+            0% {
+                text-shadow: 0 0 5px rgba(241, 241, 241, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(241, 238, 229, 0.8), 0 0 20px rgba(224, 221, 212, 0.6);
+            }
+        }
+
+        .role-card p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            color: #e8e8e8;
+        }
+
+        .role-card ul {
+            list-style-type: none;
+            text-align: left;
+        }
+
+        .role-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(72, 161, 235, 0.3);
+            transition: all 0.3s ease;
+            color: #b8b8b8;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card li::before {
+            content: '✦';
+            position: absolute;
+            left: -20px;
+            color: #37bad4;
+            transition: all 0.3s ease;
+        }
+
+        .role-card li:hover {
+            background: rgba(39, 145, 216, 0.1);
+            padding-left: 25px;
+            color: #e8e8e8;
+        }
+
+        .role-card li:hover::before {
+            left: 5px;
+        }
+
+        .role-card li:last-child {
+            border-bottom: none;
+        }
+
+        .theme-section {
+            background: rgba(1, 2, 48, 0.7);
+            padding: 50px 30px;
+            border-radius: 5px;
+            margin: 50px 0;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(38, 140, 194, 0.3);
+            animation: fadeIn 2.5s ease-out, themeGlow 8s infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes themeGlow {
+            0% {
+                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            }
+            100% {
+                box-shadow: 0 5px 35px rgba(33, 138, 224, 0.5), 0 0 60px rgba(46, 182, 228, 0.3);
+            }
+        }
+
+        .theme-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(50, 95, 168, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(55, 107, 212, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            animation: themeBackground 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes themeBackground {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        .theme-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Cinzel', serif;
+            color: #2d96d7;
+            letter-spacing: 3px;
+            animation: titleWave 4s ease-in-out infinite;
+        }
+
+        @keyframes titleWave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .theme-section p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .dress-code {
+            font-style: italic;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            color: #f0efec;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            animation: colorChange 4s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #e5e3df;
+            }
+            100% {
+                color: #3265a8;
+            }
+        }
+
+        .motif {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            color: #ffffff;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            animation: motifPulse 3s infinite;
+        }
+
+        @keyframes motifPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .location-section {
+            background: rgba(1, 2, 48, 0.7);
+            padding: 40px;
+            border-radius: 5px;
+            margin: 50px 0;
+            box-shadow: 0 5px 25px rgba(1, 1, 85, 0.5);
+            border: 1px solid rgba(10, 52, 168, 0.3);
+            animation: slideUp 2s ease-out, locationSlide 10s ease-in-out infinite alternate;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes locationSlide {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        .location-section h2 {
+            color: #2188d2;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            animation: rotate3D 8s infinite linear;
+        }
+
+        @keyframes rotate3D {
+            0%, 100% {
+                transform: perspective(500px) rotateY(0deg);
+            }
+            50% {
+                transform: perspective(500px) rotateY(10deg);
+            }
+        }
+
+        .location-details {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        .map-container {
+            background: rgba(0, 0, 0, 0.5);
+            height: 450px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(71, 138, 232, 0.3);
+            animation: mapPulse 5s infinite;
+        }
+
+        @keyframes mapPulse {
+            0%, 100% {
+                box-shadow: 0 0 0 rgba(25, 98, 171, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(31, 100, 179, 0.8);
+            }
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 3px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(120, 0, 0, 0.3);
+            font-weight: 300;
+            color: rgba(232, 232, 232, 0.7);
+            font-family: 'Cormorant Garamond', serif;
+            animation: fadeIn 3s ease-out;
+        }
+
+        .footer-text {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            animation: footerFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes footerFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Base Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 20px 10px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .roles-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .glitch-text::before,
+            .glitch-text::after {
+                display: none;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particles-background" id="particlesBackground"></div>
+    
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="glitch-container">
+                    <h1 class="glitch-text" data-text="Rhian's 18th Debut">Rhian's 18th Debut</h1>
+                </div>
+                <p class="subtitle">A NIGHT TO REMEMBER</p>
+                <p class="date">Thursday, Nov 27, 2025</p>
+                <p class="honoring">Honoring the Debutante</p>
+            </div>
+        </header>
+
+        <section class="countdown-container">
+            <h2 class="countdown-title">Countdown to the Celebration</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="roles-section">
+            <div class="role-card">
+                <h2>18 CANDLES</h2>
+                <p>You're one of the 18 Candles</p>
+                <ul>
+                    <a href="./18 candles/Jenefer.html"><li>Jenefer Magtagad</li></a>
+                    <a href = "./18 candles/Januria.html"><li>Januria Magtagad</li></a>
+                    <a href = "./18 candles/Marilou.html"><li>Marilou Lazar</li></a>
+                    <a href = "./18 candles/Trisha.html"><li>Trisha Borabo</li></a>
+                    <a href = "./18 candles/Sean.html"><li>Sean Borabo</li></a>
+                    <a href = "./18 candles/Malou.html"><li>Malou Perol</li></a>
+                    <a href = "./18 candles/Lyn.html"><li>Lyn Handig</li></a>
+                    <a href = "./18 candles/Stefanie.html"> <li>Stefanie Cervantes</li></a>
+                    <a href="./18 candles/Gil.html"><li>Gillian Perol</li></a>
+                    <a href="./18 candles/Joanna.html"><li>Joanna Cervantes</li></a>
+                    <a href="./18 candles/chi.html"><li>Chirlyn ligutom</li></a>
+                    <a href="./18 candles/kyla.html"><li>Kayla Mariquit</li></a>
+                    <a href="./18 candles/lovely.html"><li>Lovely Handig</li></a>
+                    <a href="./18 candles/leah.html"><li>Leah Handig</li></a>
+                    <a href="./18 candles/rammel.html"><li>Rammel Dave Benito</li></a>
+                    <a href="./18 candles/sandra.html"><li>Sandra Contreras</li></a>
+                    <a href="./18 candles/jonnaly.html"><li>Jonalyn villas</li></a>
+                    <a href="./18 candles/sofia.html"><li>Sofia Cataques</li></a>
+                </ul>
+            </div>
+
+            <div class="role-card">
+                <h2>18 ROSES</h2>
+                <p>You're one of the 18 Roses</p>
+                <ul>
+                    <a href="./18 roses/Roger.html"><li>Roger Magtagad</li></a>
+                    <a href="./18 roses/ejay.html"><li>Ejay Payao</li></a>
+                    <a href="./18 roses/roberto.html"><li>Roberto Amacio</li></a>
+                    <a href="./18 roses/paul.html"><li>Paul Framil</li></a>
+                    <a href="./18 roses/altaire.html"><li>Altaire Magtagad</li></a>
+                    <a href="./18 roses/john.html"><li>John Carlou Handig</li></a>
+                    <a href="./18 roses/lenard.html"><li>Lenard Handig</li></a>
+                    <a href="./18 roses/cjay.html"><li>Cjay Grafil</li></a>
+                    <a href="./18 roses/mitch.html"><li>Mitch Cruz</li></a>
+                    <a href="./18 roses/vren.html"><li>Vren Apostol</li></a>
+                    <a href="./18 roses/michael.html"><li>Michael Josh Zamora</li></a>
+                    <a href="./18 roses/krystofer.html"><li>Krystofer Ferreras</li></a>
+                    <a href="./18 roses/rhaine.html"><li>Rhaine Ramirez</li></a>
+                    <a href="./18 roses/romeo.html"><li>Romeo Veran</li></a>
+                    <a href="./18 roses/jemar.html"><li>Jemar Arellano</li></a>
+                    <a href="./18 roses/felmer.html"><li>Felmer Vinzon</li></a>
+                    <a href="./18 roses/andrew.html"><li>Andrew Betaizar</li></a>
+                    <a href="./18 roses/chester.html"><li>Chester Magtagad</li></a>
+                </ul>
+            </div>
+
+            <div class="role-card">
+                <h2>18 GIFTS</h2>
+                <p>You're one of the 18 Gifts</p>
+                <ul>
+                    <a href="./18 treasure/Mary.html"><li>Mary Genodia</li></a>
+                    <a href="./18 treasure/Angelena.html"><li>Angelene Ravana</li></a>
+                    <a href="./18 treasure/Lyza.html"><li>Lyza Bojocan</li></a>
+                    <a href="./18 treasure/Mavil.html"><li>Mavil Lumocso</li></a>
+                    <a href="./18 treasure/Andrea.html"><li>Andrea Villanueva</li></a>
+                    <a href="./18 treasure/Crissa.html"><li>Crissa De Juan</li></a>
+                    <a href="./18 treasure/Heather.html"><li>Heather Mendoza</li></a>
+                    <a href="./18 treasure/Raven.html"><li>Raven Sagud</li></a>
+                    <a href="./18 treasure/Jaycee.html"><li>Jaycee Castillejo</li></a>
+                    <a href="./18 treasure/Maxene.html"><li>Maxene Solares</li></a>
+                    <a href="./18 treasure/Kylie.html"><li>Kylie Jurado</li></a>
+                    <a href="./18 treasure/Nics.html"><li>Nics Manlapas</li></a>
+                    <a href="./18 treasure/embang.html"><li>Raynalyn Talaugon</li></a>
+                    <a href="./18 treasure/Jessierie.html"><li>Jessierie</li></a>
+                    <a href="./18 treasure/Rowena.html"><li>Rowena Adap</li></a>
+                    <a href="./18 treasure/Irine.html"><li>Irine Framil</li></a>
+                    <a href="./18 treasure/Anna.html"><li>Anna Delos Angeles</li></a>
+                    <a href="./18 treasure/Edlyn.html"><li>Edlyn Galia</li></a>
+                </ul>
+            </div>
+
+            <div class="role-card">
+                <h2>18 SHOTS</h2>
+                <p>You're one of the 18 Shots</p>
+                <ul>
+                    <a href="./18 shot/Jovy.html"><li>Jovy Carias</li></a>
+                    <a href="./18 shot/Arlene.html"><li>Arlene Handig</li></a>
+                    <a href="./18 shot/Marlene.html"><li>Marlene Handig</li></a>
+                    <a href="./18 shot/Grace.html"><li>Grace Macabutas</li></a>
+                    <a href="./18 shot/Melda.html"><li>Melda Delgado</li></a>
+                    <a href="./18 shot/Bhon.html"><li>Bhon</li></a>
+                    <a href="./18 shot/Art.html"><li>Art</li></a>
+                    <a href="./18 shot/Zhiausse.html"><li>Zhiausse Clarin</li></a>
+                    <a href="./18 shot/Rave.html"><li>Rave Anain</li></a>
+                    <a href="./18 shot/Carol.html"><li>Carol Domine</li></a>
+                    <a href = "./18 shot/Kara.html"><li>Kara Obenza</li></a>  
+                    <a href = "./18 shot/Trisha.html"><li>Trisha Remada</li></a>
+                    <a href = "./18 shot/Prin.html"><li>Dianne Doquila</li></a>
+                    <a href="./18 shot/Catpern.html"><li>Catpern Vinuya</li></a>
+                    <a href="./18 shot/Dave.html"><li>Dave Murillo</li></a>
+                    <a href="./18 shot/Ronnel.html"><li>Ronnel Zonio</li></a>
+                    <a href="./18 shot/Joshua.html"><li>Joshua Candare</li></a>
+                    <a href="./18 shot/Marlon.html"><li>Marlon Amante</li></a>
+                </ul>
+            </div>
+
+            <div class="role-card">
+                <h2>Guest</h2>
+                <p>You're one of the Guest</p>
+                <ul>
+                    <a href = "Belle.html"><li>Belle Pidlaoan</li></a>
+                    <a href="./guest/Julian.html"><li>Julian</li></a>
+                    <a href="./guest/Scarlet.html"><li>Scarlet</li></a>
+                    <a href="./guest/Renren.html"><li>Renren</li></a>
+                    <a href="./guest/Gio.html"><li>Gio</li></a>
+                    <a href="./guest/Mark.html"><li>Mark Austria</li></a>
+                    <a href="./guest/Migs.html"><li>Migs</li></a>
+                    <a href="./guest/Jessa.html"><li>Jessa</li></a>
+                    <a href="./guest/Kiyo.html"><li>Kiyo</li></a>
+                    <a href="./guest/Kian.html"><li>Kian</li></a>
+                    <a href="./guest/Arjay.html"><li>Arjay</li></a>
+                    <a href="./guest/Zedrick.html"><li>Zedrick</li></a>
+                    <a href="./guest/Zaldy.html"><li>Zaldy</li></a>
+                    <a href="./guest/Marian.html"><li>Marian</li></a>
+                    <a href="./guest/Anna.html"><li>Anna</li></a>
+                    <a href="./guest/Marilyn.html"><li>Marilyn</li></a>
+                    <a href="./guest/Roland.html"><li>Roland</li></a>
+                    <a href="./guest/Marlita.html"><li>Marlita</li></a>
+                    <a href="./guest/Efrenita.html"><li>Efrenita</li></a>
+                    <a href="/guest/Elmer.html"><li>Elmer</li></a>
+                    <a href="./guest/Marites.html"><li>Marites</li></a>
+                    <a href="./guest/Nieves.html"><li>Nieves</li></a>
+                    <a href="./guest/Mark.html"><li>Mark</li></a>
+                    <a href="./guest/Ponciano.html"><li>Ponciano</li></a>
+                    <a href="./guest/Atong.htm  l"><li>Atong</li></a>
+                    <a href="./guest/gloan.html"><li>Gloan</li></a>
+                </ul>
+            </div>
+        </section>
+
+        
+
+        <section class="theme-section">
+            <h2>THEME & DRESS CODE</h2>
+            <p>A Royal Evening in the Victorian Era</p>
+            <p class="dress-code">DRESS CODE:</p>
+            <p class="dress-code">For girls: pastel blue, light blue</p>
+            <p class="dress-code">For boys: Black suit, Long sleeve polo</p>
+            <p class="motif">Navy blue, Silver, Black</p>
+        </section>
+
+        <section class="location-section">
+            <h2>VENUE</h2>
+            <p class="location-details">Hosted by: Renzo Camacho & Juri Aquino</p>
+            <p class="location-details">ADV Garden Place</p>
+            <p class="location-details">"Arnel Resort"</p>
+            <p class="location-details">6:00 PM onwards</p>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!4v1763232872372!6m8!1m7!1sVDw9JoQ-cD6xd9PwVrrKog!2m2!1d14.74323783324409!2d121.1414110866576!3f163.35693295336193!4f-1.7573251259109668!5f0.7820865974627469"
+                    class="map-iframe"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <footer>
+            <p class="footer-text">We can't wait to celebrate this special moment with you!</p>
+            <p>You can contact us in my fb account:</p>
+            <a href="https://www.facebook.com/Asrixie"><p>Click here</p></a>
+        </footer>
+    </div>
+
+    <script>
+        // Set the date we're counting down to (Nov 1, 2025)
+        const countDownDate = new Date("Nov 27, 2025 19:00:00").getTime();
+        
+        // Update the countdown every 1 second
+        const countdownFunction = setInterval(function() {
+            // Get today's date and time
+            const now = new Date().getTime();
+            
+            // Find the distance between now and the countdown date
+            const distance = countDownDate - now;
+            
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.querySelector(".countdown").innerHTML = "<h2 style='font-size: 2.5rem; color: #d4af37; text-shadow: 0 0 20px rgba(212, 175, 55, 0.8); animation: pulse 2s infinite;'>The Celebration Has Begun!</h2>";
+                return;
+            }
+            
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+            
+        }, 1000);
+
+        // Create floating particles
+        const particlesContainer = document.getElementById('particlesBackground');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size
+            const size = Math.random() * 100 + 20;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            
+            // Random animation duration
+            const duration = Math.random() * 20 + 10;
+            particle.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            const delay = Math.random() * 5;
+            particle.style.animationDelay = `${delay}s`;
+            
+            particlesContainer.appendChild(particle);
+        }
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.role-card, .theme-section, .location-section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
